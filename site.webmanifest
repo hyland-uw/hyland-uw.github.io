@@ -1,0 +1,19 @@
+{
+    "name": "Adampunk",
+    "short_name": "Engineering a conversation with the past",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#333333",
+    "background_color": "blue",
+    "display": "standalone"
+}
