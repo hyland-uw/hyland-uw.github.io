@@ -15,5 +15,6 @@
     ],
     "theme_color": "#333333",
     "background_color": "blue",
-    "display": "standalone"
+    "display": "standalone",
+    "start_url": "https://adampunk.com"
 }
