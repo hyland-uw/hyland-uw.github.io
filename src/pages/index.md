@@ -43,29 +43,29 @@ plot data.
 ### Whitepapers about the Quake III FISR
 
 -   [First explanation in English by Chris
-    Eberly](documents/FISR/EberlyFISR.pdf), January 2002.
+    Eberly](documents/EberlyFISR.pdf), January 2002.
 -   [Explanation by Chris Lomont with a newly computed \"magic\"
-    constant](documents/FISR/LomontInvSqrt.pdf), February 2003
+    constant](documents/LomontInvSqrt.pdf), February 2003
 -   [Charles McEniry on the mathematics of the
-    constant](documents/FISR/McEniryMathematicsBehind.pdf), August 2007
+    constant](documents/McEniryMathematicsBehind.pdf), August 2007
 -   [Matthew Robertson\'s BS
-    thesis](documents/FISR/RobertsonBriefHistory.pdf), April 2012
+    thesis](documents/RobertsonBriefHistory.pdf), April 2012
 -   [Ben Self\'s BS
-    thesis](documents/FISR/SelfEfficientComputation.pdf), May 2012
+    thesis](documents/SelfEfficientComputation.pdf), May 2012
 -   [Thomas Nelson\'s survey of the
-    field](documents/FISR/NelsonSurvey.pdf), July 2017
+    field](documents/NelsonSurvey.pdf), July 2017
 
 ### More recent works which situate the FISR
 
 -   [Coonen\'s explainer with history of the
-    FISR](documents/FISR/CoonenFunParts.pdf), April 2022
+    FISR](documents/CoonenFunParts.pdf), April 2022
 -   Noah Hellman\'s June 2020 [masters
     thesis](http://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A1590166&dswid=-9978)
     demonstrating modern approximate computing on a logarithmic number
     system names the method used in the FISR as Mitchell\'s
 -   My slide deck on the FISR, given at UW HCDE\'s autumn seminar series
     2022: [*What\'s in a
-    Number?*](documents/FISR/FISR-Hyland-HCDENov2022.pdf)
+    Number?*](documents/FISR-Hyland-HCDENov2022.pdf)
 
 ### The Wikipedia article
 
