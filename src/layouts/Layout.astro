@@ -1,4 +1,9 @@
 ---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
 import Footer from '../components/Footer.astro';
 ---
 
@@ -10,7 +15,7 @@ import Footer from '../components/Footer.astro';
 		<link rel="icon" href="/favicon.ico" sizes="any">
 		<link rel="icon" href="/icon.svg" type="image/svg+xml">
 		<meta name="generator" content={Astro.generator} />
-		<title>0x5f37642f</title>
+		<title>{ title }</title>
 	</head>
 	<body>
 		<slot />
