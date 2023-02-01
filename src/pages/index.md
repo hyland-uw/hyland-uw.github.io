@@ -81,7 +81,6 @@ plot data.
     Computing](https://doi.org/10.1109/JPROC.2020.2991885),\" in
     Proceedings of the IEEE, vol. 108, no. 12, pp. 2136-2149, Dec. 2020
 
-
 ## On Kahan and K-C Ng\'s 1986 version
 
 -   An
