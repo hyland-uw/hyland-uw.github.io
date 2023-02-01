@@ -73,7 +73,7 @@ plot data.
     root](https://en.wikipedia.org/wiki/Fast_inverse_square_root). It is
     not up to date completely with all post-2010 changes in
     understanding. A source and place to find sources. (I wrote the
-    first version but do not maintain it.)
+    first version but no longer maintain it.)
 
 ### Jean-Michel Muller\'s excellent survey
 
