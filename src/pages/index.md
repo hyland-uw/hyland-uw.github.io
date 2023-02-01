@@ -1,6 +1,7 @@
 ---
-layout: ../layouts/Layout.astro
-title: The Fast Inverse Square Root
+layout: "../layouts/Layout.astro"
+title: "The Fast Inverse Square Root"
+description: "A place for information about what became known as the Fast Inverse Square Root"
 ---
 
 This place is web 1.0 levels of under construction. If you feel this
