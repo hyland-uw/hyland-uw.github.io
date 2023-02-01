@@ -1,1 +1,2 @@
-import { defineConfig } from 'astro/config'
+// Example: Bare minimum, empty configuration file
+export default {}
