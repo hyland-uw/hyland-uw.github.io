@@ -58,7 +58,7 @@ plot data.
 
 ### More recent works which situate the FISR
 
--   [Coonen\'s explainer with history of the
+-   [Jerome Coonen\'s explainer with history of the
     FISR](documents/CoonenFunParts.pdf), April 2022
 -   Noah Hellman\'s June 2020 [masters
     thesis](http://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A1590166&dswid=-9978)
@@ -81,6 +81,10 @@ plot data.
 -   Jean-Michel Muller, \"[Elementary Functions and Approximate
     Computing](https://doi.org/10.1109/JPROC.2020.2991885),\" in
     Proceedings of the IEEE, vol. 108, no. 12, pp. 2136-2149, Dec. 2020
+
+### A "Reciproot" on the Manchester Mark I
+
+-   One of the few remaining subroutines from the Manchester Mark I is a reciprocal square root. Martin Cambell-Kelly notes that in a manual written for the Mark I, "A total of ten sub-routines are named here; half were for input/output and half were mathematical functions." ([Programming the Mark I: Early programming activity at the University of Manchester](https://ieeexplore.ieee.org/document/4639134) [[Archive Link](https://archive.org/details/programming-the-mark-i)], p. 149) Kelly notes that the routine was first written in 1949. The extant copy [archived here](documents/ManchesterRecipRoot.pdf) is dated September 7, 1951. 
 
 ## On Kahan and K-C Ng\'s 1986 version
 
