@@ -84,7 +84,7 @@ plot data.
 
 ### A "Reciproot" on the Manchester Mark I
 
--   One of the few remaining subroutines from the Manchester Mark I is a reciprocal square root. Martin Cambell-Kelly notes that in a manual written for the Mark I, "A total of ten sub-routines are named here; half were for input/output and half were mathematical functions." ([Programming the Mark I: Early programming activity at the University of Manchester](https://ieeexplore.ieee.org/document/4639134) [[Archive Link](https://archive.org/details/programming-the-mark-i)], p. 149) Kelly notes that the routine was first written in 1949. The extant copy [archived here](documents/ManchesterRecipRoot.pdf) is dated September 7, 1951. 
+-   One of the few remaining subroutines from the Manchester Mark I is a reciprocal square root. Martin Campbell-Kelly notes that in a manual written for the Mark I, "A total of ten sub-routines are named here; half were for input/output and half were mathematical functions." ([Programming the Mark I: Early programming activity at the University of Manchester](https://ieeexplore.ieee.org/document/4639134) [[Archive Link](https://archive.org/details/programming-the-mark-i)], p. 149) Kelly notes that the routine was first written in 1949. The extant copy [archived here](documents/ManchesterRecipRoot.pdf) is dated September 7, 1951. 
 
 ## On Kahan and K-C Ng\'s 1986 version
 
