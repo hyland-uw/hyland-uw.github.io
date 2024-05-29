@@ -94,6 +94,7 @@ plot data.
     2022: [*What\'s in a
     Number?*](documents/FISR-Hyland-HCDENov2022.pdf)
 -   [Mike Day\'s generalization of the Fast Reciprocal Square Root](https://arxiv.org/abs/2307.15600), posted in 2023, generalizes the FRSR to all rational powers. Day suggests we refer to it as the Fast Reciprocal Square Root, to avoid confusion with the term "inverse".
+-   [Why does the integer representation of a floating point number offer a piecewise linear approximation to the logarithm?](https://stackoverflow.com/questions/75772363/why-does-the-integer-representation-of-a-floating-point-number-offer-a-piecewise) A 2023 Stack Overflow question which asks specifically about **why** the integer representation of a floating point number offers a piecewise linear approximation to the logarithm. The answers are quite good.
 
 ### The Wikipedia article
 
