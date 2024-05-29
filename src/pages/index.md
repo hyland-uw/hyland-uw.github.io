@@ -4,6 +4,8 @@ title: "The Fast Inverse Square Root"
 description: "A place for information about what became known as the Fast Inverse Square Root"
 ---
 
+# The Fast Inverse Square Root
+
 In 2001 an approximation of a reciprocal square root (y = 1/sqrt(x))
 leaked to the internet, was attributed to a charismatic hacker, and
 attained the kind of fame normally reserved for soap opera stars or
