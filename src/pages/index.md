@@ -120,6 +120,7 @@ The method which Cleve Moler cited in the creation of what became the FISR. This
     of Kahan-Ng by Ren-Cang Li, one of Kahan\'s PhD students. This is
     the only paper I have found which cites the unpublished Kahan-Ng
     work.
+-   A blog post from Shane Peelar [disassembling the game Interstate 76](https://inbetweennames.net/blog/2021-05-06-i76rsqrt/) to find a use of the Kahan-Ng method in 1997.
 
 ## Square root approximations
 The square root is a function which often appears in the critical path of a lot of applications and unlike addition, multiplication, and division, it is was not commonly implemented in hardware for most of the history of computing. As a result, many different software approximations have been developed.
