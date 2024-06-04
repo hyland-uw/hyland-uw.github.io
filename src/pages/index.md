@@ -48,6 +48,12 @@ There is--apparently--no table of logarithms, no division, and no exponentiation
 
 This page is not, per se, an explanation of the Fast Inverse Square Root (though plenty are linked). Rather it is a history of the mystery behind the FISR and an attempt to build out our understanding of an approximation which has been shared, re-discovered, and adapted to many different context in the decades since the code leaked.
 
+## What does "inverse" mean?
+
+First, what we mean by "inverse" is really "reciprocal," or [multiplicative inverse](https://en.wikipedia.org/wiki/Multiplicative_inverse). Mike Day suggests we refer to the FISR as the F**R**SR--Fast **Reciprocal** Square Root to avoid confusion with the much more common use of the word inverse to mean [inverse functions](https://en.wikipedia.org/wiki/Inverse_function).
+
+The use of a reciprocal square root is common even when what you want is the square root itself. There are many environments where 1/sqrt(x) is coded in hardware or software and sqrt(x) is aliased to x * 1/sqrt(x), rather than coding the square root and getting the reciprocal by division. This is because multiplication (x * 1/sqrt(x)) is *fast* and division is slow. Even in some of the earliest computers like the Manchester Mark I, a reciprocal square root was written as a subroutine and the square root achieved by multiplication.
+
 ## Hang on, isn\'t the magic constant \"0x5F3759DF\"?
 
 That\'s right! This page is named 0x5f37642f, Lomont\'s optimal constant
@@ -98,13 +104,13 @@ plot data.
 
 ### The Wikipedia article
 
-[Fast inverse square root](https://en.wikipedia.org/wiki/Fast_inverse_square_root) was created [in 2009](https://en.wikipedia.org/w/index.php?title=Fast_inverse_square_root&oldid=270964383). I wrote it because there were a smattering of articles on the subject but little connecting them all or seeming to tackle everything that was interesting about the FISR. My hope was that people more knowledgable than me would be able to connect on the topic area and see what else had been done, through which we could find out a little more about this fascinating topic. In a strange way, it has.
+[Fast inverse square root](https://en.wikipedia.org/wiki/Fast_inverse_square_root) was created [in 2009](https://en.wikipedia.org/w/index.php?title=Fast_inverse_square_root&oldid=270964383). I wrote it because there were a smattering of articles on the subject but little connecting them all or seeming to tackle everything that was interesting about the FISR. My hope was that people more knowledgable than me would be able to connect on the topic area and see what else had been done, through which we could find out a little more about this fascinating topic. In a way, it has.
 
 After creating the article and working with the community to improve it, I stepped back and only undertook the odd maintenance job of protecting Wikipedia by [re-instering the word "fuck" into an article](https://en.wikipedia.org/w/index.php?title=Fast_inverse_square_root&diff=prev&oldid=1100407541). When I wrote the article the most that was known about the history came from Rys Sommefeldt, who wrote a two-part investigation of the FISR in 2006 \([Part I](https://www.beyond3d.com/content/articles/8/), [Part II](http://www.beyond3d.com/content/articles/15/)\). He traced the code back to Cleve Moler and Gary Walsh. There the trail ended. Until 2012 when someone commented on Moler's blog post on [Symplectic Spacewar](https://blogs.mathworks.com/cleve/2012/06/19/symplectic-spacewar/#comment-13), comparing the work favorably to "Carmack's (much hackier) inverse square root trick". Moler replied and noted that he was the author of the aforementioned hack, and was inspired by earlier unpublished work by William Kahan and his graduate student K-C Ng in 1986, offering a link to copy of the paper preserved in a code comment block in the "freely-distributable math library" fdlibm. Years later, an anonymous editor added this comment to the Wikipedia article.
 
-These two strange interactions allow us the rare gift of being able to follow this approximation back into the past in a way we often can't do with code, especially over the order of decades.
+These two strange interactions allow us the rare gift of being able to follow this approximation back into the past in a way we often can't do with code, especially over the order of decades. Without someone misreading a wikipedia article and offering their thoughts on accidentally to the exactly right person (Moler) and another reading the comments of a blog post in order to re-integrate this into the article, the history of the FISR might have come to rest in the early 90s.
 
-## The Fast Inverse Square Root before Quake III
+## Fast Inverse Square Roots before Quake III
 
 > "If you only deal with positive numbers, the bit pattern of a floating point number, interpreted as an integer, gives a piecewise linear approximation to the logarithm function"
 
@@ -135,7 +141,7 @@ float BlinnISR(float x, int NR) {
 ```
 Here the constant is restoring the lost bits in the exponent due to right shifting it as an integer. While we treat the variable `i` as an integer, right shifting it divides by two, giving us an approximation of division of the logarithm of `x` by two. In order for that number to make sense as a floating point number, where the exponents are stored in a specific place, we need to restore those bits which were lost.
 
-The various magic constants, including `0x5f3759df` and `0x5f37642f` all perform the same restoring function, see the high bits `0x5f37`, but are tuned to give especially low errors relative to the restoring constant `0x5F400000`.
+The various magic constants, including `0x5f3759df` (Quake III) and `0x5f37642f` (Chris Lomont) all perform the same restoring function, see the high bits `0x5f37`, but are tuned to give especially low errors relative to the restoring constant `0x5F400000`. We might be tempted to call the magic constants optimized and the one used by Blinn naive, but it is better to think of it as didactic. With a constant like `0x5f3759df` it is easy to get caught up in the magic of the number and miss its role restoring the exponent.
 
 There is a fractal of literature in the graphics community stemming from Blinn which takes advantage of this approximation to the logarithm, developing their own magic constants and methods using this affordance.
 
@@ -150,7 +156,8 @@ The method which Cleve Moler cited in the creation of what became the FISR. This
     of Kahan-Ng by Ren-Cang Li, one of Kahan\'s PhD students. This is
     the only paper I have found which cites the unpublished Kahan-Ng
     work.
--   A blog post from Shane Peelar [disassembling the game Interstate 76](https://inbetweennames.net/blog/2021-05-06-i76rsqrt/) to find a use of the Kahan-Ng method in 1997.
+-   A 2021 blog post from Shane Peelar [disassembling the game Interstate 76](https://inbetweennames.net/blog/2021-05-06-i76rsqrt/) to find a use of the Kahan-Ng method in 1997.
+-   glibc included an implementation of the Kahan-Ng square root method for the DEC Alpha, [committed in 1997](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=d930b435a999517e594afd65faa5f1d534dc6c4f) until it was [removed in 2020](https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=8a7923b57e70ea500815d666e82156d291aa11fd). Linus Torvalds coded the initial port, citing Kahan and Ng's paper in a [December 1995 Linux kernel mailing list post](https://adampunk.com/documents/december-1995-lkml-sqrt.pdf).
 
 ## Square root approximations
 The square root is a function which often appears in the critical path of a lot of applications and unlike addition, multiplication, and division, it is was not commonly implemented in hardware for most of the history of computing. As a result, many different software approximations have been developed.For a good survey of current methods see Jean-Michel Muller's excellent \"[Elementary Functions and Approximate Computing](https://doi.org/10.1109/JPROC.2020.2991885),\" (Dec. 2020. esp. page 2146 for a discussion of Mitchell's method and the FISR.).
