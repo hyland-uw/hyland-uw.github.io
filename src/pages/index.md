@@ -69,7 +69,7 @@ Otherwise copies are hosted on this site as fair use.
 
 ### Data and code on the FISR
 
-This [repository](https://github.com/hyland-uw/FISR-historical) contains
+This [repository](https://github.com/hyland-uw/FastInverseSqrt-Visualized) contains
 code to reproduce versions of the FISR. Also contains data and R code to
 plot data.
 
