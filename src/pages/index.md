@@ -73,6 +73,11 @@ This [repository](https://github.com/hyland-uw/FastInverseSqrt-Visualized) conta
 code to reproduce versions of the FISR. Also contains data and R code to
 plot data.
 
+#### A small R package
+
+The package "[frsrr](https://github.com/Protonk/frsrr)" supplies a fast and 
+(optionally) instrummented FRSR in R. 
+
 ### Whitepapers about the Quake III FISR
 
 -   [First explanation in English by Chris
