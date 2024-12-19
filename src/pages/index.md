@@ -9,7 +9,9 @@ description: "A place for information about what became known as the Fast Invers
 In 2001 an approximation of a reciprocal square root (y = 1/sqrt(x))
 leaked to the internet, was attributed to a charismatic hacker, and
 attained the kind of fame normally reserved for soap opera stars or
-particularly photogenic zoo animals. The code made its way around the internet as a snippet, usually (often deliberately) unaccompanied by any explanation.
+particularly photogenic zoo animals.
+
+The code made its way around the internet as a snippet, usually (often deliberately) unaccompanied by any explanation.
 
 ``` cpp
 float Q_rsqrt(float number)
@@ -48,12 +50,6 @@ There is--apparently--no table of logarithms, no division, and no exponentiation
 
 This page is not, per se, an explanation of the Fast Inverse Square Root (though plenty are linked). Rather it is a history of the mystery behind the FISR and an attempt to build out our understanding of an approximation which has been shared, re-discovered, and adapted to many different context in the decades since the code leaked.
 
-## What does "inverse" mean?
-
-First, what we mean by "inverse" is really "reciprocal," or [multiplicative inverse](https://en.wikipedia.org/wiki/Multiplicative_inverse). Mike Day suggests we refer to the FISR as the F**R**SR--Fast **Reciprocal** Square Root to avoid confusion with the much more common use of the word inverse to mean [inverse functions](https://en.wikipedia.org/wiki/Inverse_function).
-
-The use of a reciprocal square root is common even when what you want is the square root itself. There are many environments where 1/sqrt(x) is coded in hardware or software and sqrt(x) is aliased to x * 1/sqrt(x), rather than coding the square root and getting the reciprocal by division. This is because multiplication (x * 1/sqrt(x)) is *fast* and division is slow. Even in some of the earliest computers like the Manchester Mark I, a reciprocal square root was written as a subroutine and the square root achieved by multiplication.
-
 ## Hang on, isn\'t the magic constant \"0x5F3759DF\"?
 
 That\'s right! This page is named 0x5f37642f, Lomont\'s optimal constant
@@ -62,23 +58,27 @@ Newton-Raphson (NR) in mind. Considering the next step of NR, Lomont\'s
 constant is outperformed by 0x5F3759DF, which is the one that leaked to
 the internet.
 
-## Resources on Quake III\'s Fast Inverse Square Root
+## What does "inverse" mean?
+
+First, what we mean by "inverse" is really "reciprocal," or [multiplicative inverse](https://en.wikipedia.org/wiki/Multiplicative_inverse). Mike Day suggests we refer to the FISR as the F**R**SR--Fast **Reciprocal** Square Root to avoid confusion with the much more common use of the word inverse to mean [inverse functions](https://en.wikipedia.org/wiki/Inverse_function).
+
+# Resources on the fast reciprocal square root
 
 Resources are linked below where links are available and known live.
 Otherwise copies are hosted on this site as fair use.
 
-### Data and code on the FISR
-
-This [repository](https://github.com/hyland-uw/FastInverseSqrt-Visualized) contains
-code to reproduce versions of the FISR. Also contains data and R code to
-plot data.
-
-#### A small R package
+## A small R package, frsrr
 
 The package "[frsrr](https://github.com/Protonk/frsrr)" supplies a fast and 
-(optionally) instrummented FRSR in R. 
+(optionally) instrummented FRSR in R. The input and parameter space can be 
+sampled as well as binned, and custom Newton-Raphson iterators can be constructed.
 
-### Whitepapers about the Quake III FISR
+## Visualizations and breakdowns of the FRSR
+
+This [repository](https://github.com/hyland-uw/FastInverseSqrt-Visualized) contains
+code to reproduce versions of the FISR, generated with the R package frsrr.
+
+## Whitepapers about the Quake III FISR
 
 -   [First explanation in English by Chris
     Eberly](documents/EberlyFISR.pdf), January 2002.
@@ -93,7 +93,7 @@ The package "[frsrr](https://github.com/Protonk/frsrr)" supplies a fast and
 -   [Thomas Nelson\'s survey of the
     field](documents/NelsonSurvey.pdf), July 2017
 
-### More recent works which situate the FISR
+## More recent works which situate the FISR
 
 -   [Jerome Coonen\'s explainer with history of the
     FISR](documents/CoonenFunParts.pdf), April 2022
@@ -107,7 +107,7 @@ The package "[frsrr](https://github.com/Protonk/frsrr)" supplies a fast and
 -   [Mike Day\'s generalization of the Fast Reciprocal Square Root](https://arxiv.org/abs/2307.15600), posted in 2023, generalizes the FRSR to all rational powers. Day suggests we refer to it as the Fast Reciprocal Square Root, to avoid confusion with the term "inverse".
 -   [Why does the integer representation of a floating point number offer a piecewise linear approximation to the logarithm?](https://stackoverflow.com/questions/75772363/why-does-the-integer-representation-of-a-floating-point-number-offer-a-piecewise) A 2023 Stack Overflow question which asks specifically about **why** the integer representation of a floating point number offers a piecewise linear approximation to the logarithm. The answers are quite good.
 
-### The Wikipedia article
+## The Wikipedia article
 
 [Fast inverse square root](https://en.wikipedia.org/wiki/Fast_inverse_square_root) was created [in 2009](https://en.wikipedia.org/w/index.php?title=Fast_inverse_square_root&oldid=270964383). I wrote it because there were a smattering of articles on the subject but little connecting them all or seeming to tackle everything that was interesting about the FISR. My hope was that people more knowledgable than me would be able to connect on the topic area and see what else had been done, through which we could find out a little more about this fascinating topic. In a way, it has.
 
@@ -115,7 +115,7 @@ After creating the article and working with the community to improve it, I stepp
 
 These two strange interactions allow us the rare gift of being able to follow this approximation back into the past in a way we often can't do with code, especially over the order of decades. Without someone misreading a wikipedia article and offering their thoughts on accidentally to the exactly right person (Moler) and another reading the comments of a blog post in order to re-integrate this into the article, the history of the FISR might have come to rest in the early 90s.
 
-## Fast Inverse Square Roots before Quake III
+# Fast Inverse Square Roots before Quake III
 
 > "If you only deal with positive numbers, the bit pattern of a floating point number, interpreted as an integer, gives a piecewise linear approximation to the logarithm function"
 
@@ -150,7 +150,7 @@ The various magic constants, including `0x5f3759df` (Quake III) and `0x5f37642f`
 
 There is a fractal of literature in the graphics community stemming from Blinn which takes advantage of this approximation to the logarithm, developing their own magic constants and methods using this affordance.
 
-### On Kahan and K-C Ng\'s 1986 version
+## On Kahan and K-C Ng\'s 1986 version
 The method which Cleve Moler cited in the creation of what became the FISR. This method was not formally published, but circulated among researchers and included as a comment in the [source code of the library "fdlibm"](https://www.netlib.org/fdlibm/e_sqrt.c), distributed via Netlib since 1993.
 -   An
     [implementation](https://gist.github.com/Protonk/f3c5bb91f228ffec4d4c5e2eb16e489d)
@@ -167,9 +167,25 @@ The method which Cleve Moler cited in the creation of what became the FISR. This
 ## Square root approximations
 The square root is a function which often appears in the critical path of a lot of applications and unlike addition, multiplication, and division, it is was not commonly implemented in hardware for most of the history of computing. As a result, many different software approximations have been developed.For a good survey of current methods see Jean-Michel Muller's excellent \"[Elementary Functions and Approximate Computing](https://doi.org/10.1109/JPROC.2020.2991885),\" (Dec. 2020. esp. page 2146 for a discussion of Mitchell's method and the FISR.).
 
+The use of a reciprocal square root is common even when what you want is the square root itself. There are many environments where 1/sqrt(x) is coded in hardware or software and sqrt(x) is aliased to x * 1/sqrt(x), rather than coding the square root and getting the reciprocal by division. This is because multiplication (x * 1/sqrt(x)) is *fast* and division is slow.
+
 ### A "Reciproot" on the Manchester Mark I
 
 One of the few remaining subroutines from the Manchester Mark I is a reciprocal square root. Martin Campbell-Kelly notes that in a manual written for the Mark I, "A total of ten sub-routines are named here; half were for input/output and half were mathematical functions." ([Programming the Mark I: Early programming activity at the University of Manchester](https://ieeexplore.ieee.org/document/4639134) [[Archive Link](https://archive.org/details/programming-the-mark-i)], p. 149) Kelly notes that the routine was first written in 1949. The extant copy [archived here](documents/ManchesterRecipRoot.pdf) is dated September 7, 1951 and was adapted from Turing\'s original manual by Cecily Poppelwell and D.G. Prinz for the [Ferranti Mark I](https://en.wikipedia.org/wiki/Ferranti_Mark_1). See an explanation of the code on the "retrocomputing" stack exchange [here](https://retrocomputing.stackexchange.com/questions/26505/looking-for-help-understanding-a-reciproot-routine-on-the-manchester-mark-i-1). User dirkt provides an excellent breakdown in [his answer](https://retrocomputing.stackexchange.com/a/26510/23632).
+
+### On the form of Newton-Raphson
+
+The form of [Newton's method (Newton-Raphson)](https://en.wikipedia.org/wiki/Newton%27s_method) for a reciprocal square root is normally given as:
+
+![y(n+1) = y(n) * (3 - x*y(n)^2) / 2](https://latex.codecogs.com/svg.image?y_{n+1}=\frac{y_{n}(3-xy_n^2)}{2})
+
+However, the Quake III FISR and most computer implementations of Newton-Raphson write it this way:
+
+![y_n+1 = y_n * (1.5 - 0.5 * x * y_n^2)](https://latex.codecogs.com/svg.image?y_{n+1}=y_{n}\cdot(1.5-0.5\cdot%20x\cdot%20y_{n}^2))
+
+Doing so skips a division step, a fact first noted in print in 1949 by D.H. Hartree in "Notes on iterative processes," *Mathematical Proceedings of the Cambridge Philosophical Society*, Vol. 45 , No. 2, April 1949, pp. 230 - 236, specifically pp. 233-234
+
+Like the choice to supply a reciprocal square root and attaining the square root by multiplication, this optimization shows engineers were keenly interested in avoiding slow divisionn steps, even early on in computing.
 
 ## Updates to this page
 
